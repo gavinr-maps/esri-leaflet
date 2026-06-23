@@ -88,7 +88,9 @@ export const TiledMapLayer = TileLayer.extend({
           y: tilePoint.y,
           // try lod map first, then just default to zoom level
           z:
-            this._lodMap && this._lodMap[zoom] !== undefined
+            this._lodMap &&
+            this._lodMap[zoom] !== undefined &&
+            this._lodMap !== "crs"
               ? this._lodMap[zoom]
               : zoom,
         },
